@@ -1,6 +1,8 @@
 public class Damenproblem {
     private int n;
     private int[][] feld;
+    private int anzahlLoesungen;
+    
     public Damenproblem (int d) {
 		feld = new int[d][d];
 		n = d;
@@ -62,21 +64,21 @@ public class Damenproblem {
 	}
     static public void main (String[] arg) {
 		// Beispiel fur main-Funktion zum Testen
-        Damenproblem dOk = new Damenproblem(8);
-        dOk.platziere(0);
-        System.out.print("Es gibt " + dOk.anzahlLoesungen + " Losungen fur das ");
-        System.out.println(dOk.n + "-Damenproblem.");
+        Damenproblem dOk8 = new Damenproblem(8);
+        dOk8.platziere(0);
+        System.out.print("Es gibt " + dOk8.anzahlLoesungen + " Losungen fur das ");
+        System.out.println(dOk8.n + "-Damenproblem.");
 		
-        Damenproblem dOk = new Damenproblem (4);
-        dOk.feld[1][0] = 1;
-        dOk.feld[3][1] = 1;
-        dOk.feld[0][2] = 1;
-        dOk.feld[2][3] = 1;
-        if (dOk.korrektPlatziert()) {
+        Damenproblem dOk4 = new Damenproblem (4);
+        dOk4.feld[1][0] = 1;
+        dOk4.feld[3][1] = 1;
+        dOk4.feld[0][2] = 1;
+        dOk4.feld[2][3] = 1;
+        if (dOk4.korrektPlatziert()) {
             System.out.println ("dOk ist eine moegliche Loesung!:");
         } else {
             System.out.println ("dOk ist keine erlaubte Loesung:");
         }
-        dOk.ausgabe();
+        dOk4.ausgabe();
     }
 }

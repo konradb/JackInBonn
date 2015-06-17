@@ -4,6 +4,7 @@ import de.uni_due.s3.jack2.backend.checkers.tracingchecker.framework.TracingFram
 public class SolutionDamenproblem {
     private int n;
     private int[][] feld;
+    private int anzahlLoesungen;
 	
     public SolutionDamenproblem (int d) {
 		feld = new int[d][d];
@@ -140,7 +141,7 @@ public class SolutionDamenproblem {
         System.out.print("Es gibt " + studentdOk.anzahlLoesungen + " Losungen fur das ");
         System.out.println(studentdOk.n + "-SolutionDamenproblem.");
 		
-		if ((dOk.platziere(0) != studentdOk.platziere(0)) || (dOk.anzahlLoesungen != studentdOk.anzahlLoesungen) || (dOk.n != studentdOk.n)) {
+		if ((dOk.korrektPlatziert() != studentdOk.korrektPlatziert())) {
 			TracingFramework.printError("Die Methode sum erzeugt weder das richtige Muster noch die richtigen Zahlen. <table border=\"1\" style=\"width:100%;border:1px dotted;border-collapse:collapse;\"><tr><td>Deine Ausgabe</td><td>Erwartete Ausgabe</td></tr><tr><td><pre>Es gibt " + studentdOk.anzahlLoesungen + " Losungen fur das " + studentdOk.n + "-SolutionDamenproblem.</pre></td><td><pre>Es gibt " + dOk.anzahlLoesungen + " Losungen fur das " + dOk.n + "-SolutionDamenproblem.</pre></td></tr></table>");
 		} else {
 			intermediateResults[3]=7;
@@ -156,22 +157,22 @@ public class SolutionDamenproblem {
 	}
 	
     static public void main (String[] arg) {
-		// Beispiel fur main-Funktion zum Testen
-        SolutionDamenproblem dOk = new SolutionDamenproblem(8);
-        dOk.platziere(0);
-        System.out.print("Es gibt " + dOk.anzahlLoesungen + " Losungen fur das ");
-        System.out.println(dOk.n + "-SolutionDamenproblem.");
+    	// Beispiel fur main-Funktion zum Testen
+        SolutionDamenproblem dOk8 = new SolutionDamenproblem(8);
+        dOk8.platziere(0);
+        System.out.print("Es gibt " + dOk8.anzahlLoesungen + " Losungen fur das ");
+        System.out.println(dOk8.n + "-Damenproblem.");
 		
-        SolutionDamenproblem dOk = new SolutionDamenproblem (4);
-        dOk.feld[1][0] = 1;
-        dOk.feld[3][1] = 1;
-        dOk.feld[0][2] = 1;
-        dOk.feld[2][3] = 1;
-        if (dOk.korrektPlatziert()) {
+        SolutionDamenproblem dOk4 = new SolutionDamenproblem (4);
+        dOk4.feld[1][0] = 1;
+        dOk4.feld[3][1] = 1;
+        dOk4.feld[0][2] = 1;
+        dOk4.feld[2][3] = 1;
+        if (dOk4.korrektPlatziert()) {
             System.out.println ("dOk ist eine moegliche Loesung!:");
         } else {
             System.out.println ("dOk ist keine erlaubte Loesung:");
         }
-        dOk.ausgabe();
+        dOk4.ausgabe();
     }
 }
